@@ -16,15 +16,18 @@ def wordle():
         gw.show_message(correct_answer_list)
 
 
-    def add_row() :
-        for i, letter in  enumerate(correct_answer_list) :
-            gw.set_square_letter(0, i, letter) 
+    def add_row(row_number, input_string) :
+        for i, letter in  enumerate(input_string) :
+            gw.set_square_letter(row_number, i, letter) 
 
+
+    # get random word from word list and make it an array
     correct_answer = random.choice(FIVE_LETTER_WORDS)
     correct_answer_list = list(correct_answer)
 
+
     gw = WordleGWindow()
-    add_row()
+    add_row(0, correct_answer)
     gw.add_enter_listener(enter_action)
 
     
