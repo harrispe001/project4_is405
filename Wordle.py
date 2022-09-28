@@ -27,7 +27,10 @@ def wordle():
 
 
     gw = WordleGWindow()
+
+    #temporary - adds random string to first row
     add_row(0, correct_answer)
+    
     gw.add_enter_listener(enter_action)
 
     
