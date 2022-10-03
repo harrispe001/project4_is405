@@ -11,9 +11,14 @@ from WordleDictionary import FIVE_LETTER_WORDS
 from WordleGraphics import WordleGWindow, N_COLS, N_ROWS
 
 def wordle():
+    
+    # Checks if input is in word list and displays messages
+    def enter_action(input_string):
+        if input_string.lower() in FIVE_LETTER_WORDS:
+            gw.show_message("That is a word!")
+        else:
+            gw.show_message("Not in word list")
 
-    def enter_action(s):
-        gw.show_message(correct_answer_list)
 
 
     def add_row(row_number, input_string) :
@@ -29,7 +34,7 @@ def wordle():
     gw = WordleGWindow()
 
     #temporary - adds random string to first row
-    add_row(0, correct_answer)
+    #add_row(0, correct_answer)
     
     gw.add_enter_listener(enter_action)
 

@@ -1,4 +1,4 @@
-# File: WordleGraphics.py
+    # File: WordleGraphics.py
 
 """
 This file implements the WordleGWindow class, which manages the
