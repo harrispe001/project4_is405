@@ -16,8 +16,10 @@ def wordle():
     def enter_action(input_string):
         if input_string.lower() in FIVE_LETTER_WORDS:
             gw.show_message("That is a word!")
+            gw.set_current_row(gw.get_current_row() + 1)
         else:
-            gw.show_message("Not in word list")
+            gw.show_message(input_string + " in word list")
+            gw.set_square_letter(gw.get_current_row(), 0, 'Z')
 
 
 
@@ -29,14 +31,14 @@ def wordle():
     # get random word from word list and make it an array
     correct_answer = random.choice(FIVE_LETTER_WORDS)
     correct_answer_list = list(correct_answer)
+    correct_guess = False
+
 
 
     gw = WordleGWindow()
-
-    #temporary - adds random string to first row
-    #add_row(0, correct_answer)
-    
     gw.add_enter_listener(enter_action)
+    
+
 
     
 # Startup code
