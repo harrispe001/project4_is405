@@ -52,7 +52,11 @@ def wordle():
 
         #What to do with invalid word
         else:
-            gw.show_message(input_string + " not in word list")
+            input_string = input_string.strip()
+            if len(input_string) != 5:
+                gw.show_message("Enter 5 letter word")
+            else:
+                gw.show_message(input_string + " not in word list" )
 
 
 
