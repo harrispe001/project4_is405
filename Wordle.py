@@ -1,9 +1,6 @@
 # File: Wordle.py
 
-"""
-This module is the starter file for the Wordle assignment.
-BE SURE TO UPDATE THIS COMMENT WHEN YOU WRITE THE CODE.
-"""
+#Jake Hadley, Kyle Evert, Jacob Donaldson, Audrey Youngberg, Spencer Harrison
 
 import random
 
