@@ -22,9 +22,9 @@ def wordle():
 
             #Output winning message
             if gw.get_current_row() > 0 :
-                gw.show_message(f'You Won! It took you {gw.get_current_row() + 1} tries')
+                gw.show_message(f'You won in {gw.get_current_row() + 1} tries!')
             else :
-                gw.show_message(f'You Won! It took you {gw.get_current_row() + 1} try')
+                gw.show_message(f'You won in {gw.get_current_row() + 1} try!')
 
         #Display yellows & greens for incorrect guess
         elif input_string.lower() in FIVE_LETTER_WORDS:
@@ -45,6 +45,7 @@ def wordle():
                 elif pos in yellow_positions:
                     gw.set_square_color(gw.get_current_row(), pos, "#CCBB66")
 
+
             if gw.get_current_row()==5:
                 gw.show_message(f'You did not guess it! The correct answer is: {correct_answer.upper()}' )
             else:
@@ -58,13 +59,7 @@ def wordle():
             else:
                 gw.show_message(input_string + " not in word list" )
 
-
-
-    def add_row(row_number, input_string) :
-        for i, letter in  enumerate(input_string) :
-            gw.set_square_letter(row_number, i, letter) 
-
-
+    #set correct answer
     def set_answer() :
         return random.choice(FIVE_LETTER_WORDS)
 
@@ -105,14 +100,13 @@ def wordle():
 
     
     #Set correct answer for wordle game
-    #correct_answer = set_answer()
     correct_answer = set_answer()
 
     #Start window    
     gw = WordleGWindow()
     
-    #temporary show the answer for testing
-    gw.show_message(correct_answer)
+    #Welcome message
+    gw.show_message("Welcome to Wordle")
 
     gw.add_enter_listener(enter_action)
     
