@@ -40,11 +40,17 @@ def wordle():
             for pos in range(0, 5):
                 if pos in green_positions:
                     gw.set_square_color(gw.get_current_row(), pos, "#66BB66")
+                    gw.set_key_color(input_string[pos], "#66BB66")
 
                 #make tile yellow  - unless key is already green
                 elif pos in yellow_positions:
                     gw.set_square_color(gw.get_current_row(), pos, "#CCBB66")
+                    if gw.get_key_color(input_string[pos]) != "#66BB66":
+                        gw.set_key_color(input_string[pos], "#CCBB66")
 
+                #Gray out keys if not in word
+                elif (pos not in green_positions) and (pos not in yellow_positions) and (gw.get_key_color(input_string[pos]) != "#66BB66") and (gw.get_key_color(input_string[pos]) != "#CCBB66"):
+                    gw.set_key_color(input_string[pos], "#999999")
 
             if gw.get_current_row()==5:
                 gw.show_message(f'You did not guess it! The correct answer is: {correct_answer.upper()}' )
